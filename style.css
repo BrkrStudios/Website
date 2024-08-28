@@ -51,25 +51,22 @@ body {
     background: #000;
     color: #fff;
     text-align: center;
-    height: 1000px;
+    height: 1070px;
     display: flex;
     justify-content: center;
     align-items: center;
     overflow: hidden;
 }
 
-/* Blurring the background image */
-.hero::before {
-    content: "";
+/* Video as background */
+.hero video {
     position: absolute;
     top: 0;
     left: 0;
-    right: 0;
-    bottom: 0;
-    background-image: url('Screenshot\ 2024-08-28\ at\ 1.32.02\ PM.png');
-    background-size: cover;
-    background-position: center;
-    filter: blur(10px);
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: blur(10px); /* Adjust the blur intensity as needed */
     z-index: 1;
 }
 
