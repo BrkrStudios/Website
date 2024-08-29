@@ -1,4 +1,20 @@
 /* Resetting margins and padding */
+
+
+@font-face {
+    font-family: 'MyFont';
+    src: url('proximanova_regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'MyFont1';
+    src: url('proximanova_black.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -7,7 +23,7 @@
 
 body {
     font-family: 'Helvetica Neue', Arial, sans-serif;
-    background-color: #f7f7f7;
+    background-color:  #1A1A1B;
     color: #333;
     line-height: 1.6;
     margin: 0;
@@ -38,7 +54,7 @@ body {
 .navbar .nav-menu a {
     color: #fff;
     text-decoration: none;
-    font-weight: bold;
+    font-weight: regular;
     text-transform: uppercase;
 }
 
@@ -72,7 +88,7 @@ body {
 
 /* Ensuring text appears above the blurred background */
 .hero h1 {
-    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-family: 'myFont';
     position: relative;
     font-size: 7vw; /* Scales with screen size */
     z-index: 2;
@@ -82,7 +98,8 @@ body {
 
 
 .hero h3 {
-    font-family: 'Helvetica Neue', Arial, sans-serif;
+
+    font-family: 'myFont';
     position: relative;
     font-size: 2vw; /* Scales with screen size */
     z-index: 2;
@@ -96,67 +113,17 @@ body {
 .content-section {
     padding: 60px 20px;
     text-align: center;
-    background-color: #fff;
+    background-color: #3E4144;
     margin: 40px 0;
+    color: #fff;
 }
 
 .content-section h2 {
     font-size: 5vw; /* Scales with screen size */
     margin-bottom: 20px;
-}
-
-
-.testimonial-section {
-    background-color: #000;
     color: #fff;
-    padding: 60px 20px;
-    text-align: center;
 }
 
-.testimonial-section p {
-    font-size: 4vw; /* Scales with screen size */
-    margin-bottom: 20px;
-}
-
-.contact-section {
-    padding: 60px 20px;
-    background-color: #f0f0f0;
-    text-align: center;
-}
-
-.contact-section h2 {
-    font-size: 5vw; /* Scales with screen size */
-    margin-bottom: 20px;
-}
-
-.contact-section form {
-    max-width: 600px;
-    margin: 0 auto;
-}
-
-.contact-section input, 
-.contact-section textarea {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 20px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
-
-.contact-section button {
-    padding: 10px 20px;
-    background-color: #000;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-    font-size: 18px;
-    text-transform: uppercase;
-    transition: background-color 0.3s ease;
-}
-
-.contact-section button:hover {
-    background-color: #444;
-}
 
 .footer {
     background-color: #000;
@@ -164,6 +131,9 @@ body {
     padding: 20px;
     text-align: center;
 }
+
+
+
 /* Media Queries for Mobile Optimization */
 @media (max-width: 768px) {
     .navbar .nav-menu {
@@ -189,11 +159,6 @@ body {
         font-size: 8vw;
     }
 
-    .testimonial-section p {
-        font-size: 6vw;
-    }
 
-    .contact-section h2 {
-        font-size: 8vw;
-    }
+
 }
