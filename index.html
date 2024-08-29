@@ -4,42 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BrkrStudios</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css"> <!-- Linking to the CSS file -->
 </head>
 <body>
 
     <!-- Hero Section including Header -->
     <section class="hero">
-        <video autoplay muted loop>
-            <source src="Screen Recording 2024-08-28 at 2.07.13 PM.mov" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
-        <header class="header">
-            <nav class="navbar">
-                <ul class="nav-menu">
-                    <li><a href="#"></a></li>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Contact</a></li>
-                </ul>
-            </nav>
-        </header>
+
+        <!-- Hero Background Image -->
+        <img src="Screenshot 2024-08-28 at 7.31.12 PM.png" alt="Background Image" class="hero-image">
+
+        <!-- Navigation and Menu Icon -->
+        <div class="menu-icon" onclick="toggleMenu()">&#9776;</div>
+        <nav class="navbar">
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#about">About</a></li>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+        
+        <!-- Hero Content -->
         <div class="hero-content">
             <h1>BrkrStudios</h1>
             <h3>Crafting New Digital Experiences </h3>
         </div>
-    </section>
-
-    <!-- Content Section 1 -->
-    <section class="content-section">
-        <h2>MilliLife</h2>
-        <p>It all begins with an idea. Maybe you want to launch a business. Maybe you want to turn a hobby into something more...</p>
-    </section>
-
-    <!-- Content Section 2 -->
-    <section class="content-section">
-        <h2>Meet Your Creator</h2>
-        <p>Your story is what's going to separate this one from the rest...</p>
     </section>
 
     <!-- Footer -->
@@ -49,3 +38,15 @@
     
 </body>
 </html>
+
+<!-- JavaScript for Menu Toggle and Scroll Effects -->
+<script>
+    function toggleMenu() {
+    document.getElementById('navMenu').classList.toggle('active');
+}
+
+window.addEventListener('scroll', function() {
+    var header = document.querySelector('.header');
+    header.classList.toggle('scrolled', window.scrollY > 50);
+});
+</script>

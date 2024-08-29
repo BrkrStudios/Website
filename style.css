@@ -1,6 +1,16 @@
-/* Resetting margins and padding */
+/* Resetting margins, padding, and box-sizing */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
+/* Smooth scrolling for anchors */
+html {
+    scroll-behavior: smooth;
+}
 
+/* Font Face definitions */
 @font-face {
     font-family: 'MyFont';
     src: url('proximanova_regular.ttf') format('truetype');
@@ -15,67 +25,112 @@
     font-style: normal;
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+/* Basic image styling */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    border: 0;
 }
 
-body {
-    font-family: 'Helvetica Neue', Arial, sans-serif;
-    background-color:  #1A1A1B;
-    color: #333;
-    line-height: 1.6;
-    margin: 0;
-    padding: 0;
+/* Basic link styling */
+a {
+    text-decoration: none;
+    color: inherit; /* Inherits the color to match surrounding text */
 }
 
+/* Accessibility improvements for focus states */
+a:focus,
+button:focus,
+input:focus {
+    outline: 3px solid #00f; /* Better focus indication */
+}
 
-
-/* Top of webpage, background stuff */ 
-
+/* Header styles */
 .header {
-    position: absolute;
+    position: fixed;
     top: 0;
     width: 100%;
-    z-index: 3;
-    background-color: transparent; /* Make header transparent to show background */
+    z-index: 1000;
+    background-color: transparent; /* Transparent header */
     padding: 20px;
     text-align: center;
+    backdrop-filter: blur(5px);
+    transition: background-color 0.3s ease; /* Smooth background color transition */
 }
 
+/* Header styles when scrolled */
+.header.scrolled {
+    background-color: rgba(0, 0, 0, 0.3); /* Background turns dark on scroll */
+}
+
+/* Menu icon styling */
+.menu-icon {
+    display: block;
+    cursor: pointer;
+    font-size: 2rem;
+    color: #fff;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    z-index: 2000; /* Ensure the icon stays above the menu */
+}
+
+/* Navbar styles */
 .navbar .nav-menu {
     list-style: none;
     display: flex;
     justify-content: center;
-    gap: 40px;
+    gap: 20px;
+    flex-wrap: wrap;
+    transition: transform 0.3s ease;
+    transform: translateX(100%); /* Start off-screen to the right */
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.9);
+    flex-direction: column;
+    padding: 60px 20px;
+    z-index: 1000; /* Make sure the menu is under the menu icon */
 }
 
+/* Navbar active state */
+.navbar .nav-menu.active {
+    transform: translateX(0); /* Slide in from the right */
+}
+
+/* Navbar link styles */
 .navbar .nav-menu a {
     color: #fff;
-    text-decoration: none;
-    font-weight: regular;
+    font-weight: 400;
     text-transform: uppercase;
+    font-size: 1.5rem;
+    transition: color 0.3s ease;
+    margin-bottom: 20px;
 }
 
+/* Navbar link hover effect */
+.navbar .nav-menu a:hover {
+    color: #00f0ff; /* Hover effect */
+}
 
-
-/*Brkrstudios main page here*/
-
+/* Hero section styles */
 .hero {
     position: relative;
     background: #000;
     color: #fff;
     text-align: center;
-    height: 1070px;
+    height: 100vh; /* Full viewport height */
     display: flex;
     justify-content: center;
     align-items: center;
     overflow: hidden;
+    padding: 0;
 }
 
-/* Video as background */
-.hero video {
+/* Hero background image styles */
+.hero-image {
     position: absolute;
     top: 0;
     left: 0;
@@ -86,79 +141,126 @@ body {
     z-index: 1;
 }
 
-/* Ensuring text appears above the blurred background */
+/* Hero main title */
 .hero h1 {
-    font-family: 'myFont';
+    font-family: 'MyFont';
     position: relative;
-    font-size: 7vw; /* Scales with screen size */
+    font-size: 8vw;
     z-index: 2;
-    transform: skew(-5deg);
     margin: 0;
 }
 
-
+/* Hero sub-title */
 .hero h3 {
-
-    font-family: 'myFont';
+    font-family: 'MyFont';
     position: relative;
-    font-size: 2vw; /* Scales with screen size */
+    font-size: 3vw;
     z-index: 2;
-    margin-top: 20px;
+    margin-top: 10px;
 }
 
 
 
-/* miililife section of the webpage */
-
-.content-section {
-    padding: 60px 20px;
-    text-align: center;
-    background-color: #3E4144;
-    margin: 40px 0;
-    color: #fff;
-}
-
-.content-section h2 {
-    font-size: 5vw; /* Scales with screen size */
-    margin-bottom: 20px;
-    color: #fff;
-}
-
-
+/* Footer styles */
 .footer {
+    font-family: 'MyFont';
     background-color: #000;
     color: #fff;
-    padding: 20px;
+    padding: 40px 20px;
     text-align: center;
 }
 
-
-
-/* Media Queries for Mobile Optimization */
+/* Mobile Optimization */
 @media (max-width: 768px) {
-    .navbar .nav-menu {
-        flex-direction: row; /* Keep the horizontal layout */
-        justify-content: center;
-        gap: 20px;
+    .menu-icon {
+        display: block; /* Show menu icon only on mobile */
     }
 
+    /* Navbar styles for mobile */
+    .navbar .nav-menu {
+        flex-direction: column;
+        justify-content: center;
+        gap: 10px;
+        padding: 10px 0;
+        width: 100%; /* Full width on mobile */
+        height: 100vh; /* Full height on mobile */
+        transform: translateX(100%); /* Start off-screen to the right */
+    }
+
+    /* Navbar active state for mobile */
+    .navbar .nav-menu.active {
+        transform: translateX(0); /* Slide in from the right, covering the full screen */
+    }
+
+    /* Hero section styles for mobile */
     .hero {
         height: 100vh;
-        padding: 0 20px;
+        padding: 0;
     }
 
     .hero h1 {
-        font-size: 12vw;
+        font-size: 10vw;
     }
 
     .hero h3 {
+        font-size: 5vw;
+        margin-top: 10px;
+    }
+
+    /* Content section heading font size for mobile */
+    .content-section h2 {
+        font-size: 8vw;
+        margin-bottom: 20px;
+    }
+}
+
+/* Tablet and Desktop Optimization */
+@media (min-width: 769px) {
+    /* Navbar styles for tablet and desktop */
+    .navbar .nav-menu {
+        width: 50%; /* Half screen on larger screens */
+    }
+
+    /* Navbar active state for tablet and desktop */
+    .navbar .nav-menu.active {
+        transform: translateX(0); /* Slide in from the right */
+    }
+
+    .hero h1 {
         font-size: 6vw;
     }
 
-    .content-section h2 {
-        font-size: 8vw;
+    .hero h3 {
+        font-size: 2.5vw;
     }
 
+    .content-section h2 {
+        font-size: 4vw;
+    }
+}
 
 
+@media (min-width: 1025px) {
+    .navbar .nav-menu a {
+        font-size: 1.2rem;
+    }
+
+    .hero h1 {
+        font-size: 6vw;
+    }
+
+    .hero h3 {
+        font-size: 2.5vw;
+    }
+
+    .content-section h2 {
+        font-size: 4vw;
+    }
+}
+
+
+@media (min-width: 768px) {
+    .navbar .nav-menu {
+        width: 50%; /* Half screen on larger screens */
+    }
 }
