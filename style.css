@@ -13,7 +13,7 @@ html {
 
 body {
     background-color: #000; /* Black background for the entire page */
-    font-family: 'MyFont', sans-serif; /* Setting a default font-family */
+    font-family: 'MyFont', Arial, sans-serif; /* Setting a default font-family */
 }
 
 /* Font Face definitions */
@@ -44,6 +44,8 @@ button:focus,
 input:focus {
     outline: 3px solid #00f; /* Better focus indication */
 }
+
+
 
 
 /* Navbar Styling */
@@ -123,16 +125,19 @@ input:focus {
     color: #131313; /* Text color changes to dark on hover */
 }
 
+
 /* Mobile Menu Styles */
 .menu-icon {
     display: none; /* Hide the menu icon by default on desktop */
     cursor: pointer;
-    font-size: 2.5rem;
+    font-size: 3rem;
     color: #fff;
-    position: absolute;
+    position: fixed; /* Changed from absolute to fixed */
     right: 20px;
     top: 20px;
     z-index: 2000; /* Ensure the icon stays above other elements */
+
+    background-color: transparent; /* Make sure it's transparent to match the navbar */
 }
 
 /* Mobile Menu Setup */
@@ -163,6 +168,14 @@ input:focus {
     .navbar .nav-menu.active {
         transform: translateX(0); /* Slide in the menu when active */
     }
+
+    .navbar.scrolled {
+        background-color: rgba(0, 0, 0, 0.8); /* Background changes on scroll */
+    }
+
+    .menu-icon.scrolled {
+        background-color: rgba(0, 0, 0, 0.8); /* Ensure the icon matches navbar on scroll */
+    }
 }
 
 /* Desktop View - Show Full Menu */
@@ -185,20 +198,7 @@ input:focus {
     }
 }
 
-/* Mobile View - Show Hamburger Icon */
-@media (max-width: 768px) {
-    .menu-icon {
-        display: block; /* Show the menu icon on mobile */
-    }
 
-    .navbar .nav-menu {
-        transform: translateX(100%); /* Hide the menu offscreen by default on mobile */
-    }
-
-    .navbar .nav-menu.active {
-        transform: translateX(0); /* Slide in the menu when active */
-    }
-}
 /* Hero section styles */
 .hero {
     position: relative;
@@ -212,6 +212,40 @@ input:focus {
     overflow: hidden;
     padding: 0;
 }
+
+.container {
+    width: 500px;
+    min-height: 50px; /* Adjust this value based on the height of your text */
+    overflow: hidden;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Media query for screens less than 768px */
+@media (max-width: 768px) {
+    .container {
+        width: 100%;
+        margin-top: 0;
+        margin: 0 auto; /* Center the container horizontally */
+    }
+}
+
+.container .text {
+    position: relative;
+    color: #4070F4;
+    white-space: nowrap;
+    font-size: 30px;
+    font-weight: 600;
+    text-align: center;
+    z-index: 3;
+}
+
+.container .text.first-text {
+    color: #FFF;
+}
+
+
 
 /* Hero background image styles */
 .video-bg {
@@ -232,16 +266,6 @@ input:focus {
     z-index: 2;
     margin: 0;
 }
-
-/* Hero sub-title */
-.hero h3 {
-    font-family: 'MyFont';
-    position: relative;
-    font-size: 3vw;
-    z-index: 2;
-    margin-top: 10px;
-}
-
 
 /* Footer styles */
 .footer {
@@ -281,13 +305,21 @@ input:focus {
     }
 
     .hero h1 {
-        font-size: 10vw;
+        font-size: 14vw;
     }
 
-    .hero h3 {
-        font-size: 5vw;
-        margin-top: 10px;
+    .menu-icon {
+        display: block; /* Show the menu icon on mobile */
     }
+
+    .navbar .nav-menu {
+        transform: translateX(100%); /* Hide the menu offscreen by default on mobile */
+    }
+
+    .navbar .nav-menu.active {
+        transform: translateX(0); /* Slide in the menu when active */
+    }
+
 
     /* Content section heading font size for mobile */
     .content-section h2 {
@@ -312,13 +344,28 @@ input:focus {
         font-size: 6vw;
     }
 
-    .hero h3 {
-        font-size: 2.5vw;
-    }
 
     .content-section h2 {
         font-size: 4vw;
     }
+
+    .navbar .nav-menu {
+        position: static;
+        height: auto;
+        transform: none;
+        background-color: transparent;
+        flex-direction: row;
+        justify-content: flex-end;
+    }
+
+    .menu-icon {
+        display: none; /* Hide the menu icon on desktop */
+    }
+
+    .navbar .nav-menu.active {
+        transform: none;
+    }
+    
 }
 
 
@@ -329,10 +376,6 @@ input:focus {
 
     .hero h1 {
         font-size: 6vw;
-    }
-
-    .hero h3 {
-        font-size: 2.5vw;
     }
 
     .content-section h2 {
@@ -346,3 +389,4 @@ input:focus {
         width: 50%; /* Half screen on larger screens */
     }
 }
+
