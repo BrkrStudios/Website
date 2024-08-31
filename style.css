@@ -16,7 +16,7 @@ body {
     font-family: 'MyFont', Arial, sans-serif; /* Setting a default font-family */
 }
 
-/* Font Face definitions */
+/* Font Face definitions! */
 @font-face {
     font-family: 'MyFont';
     src: url('proximanova_regular.ttf') format('truetype');
