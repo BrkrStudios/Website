@@ -38,7 +38,27 @@ a {
     color: inherit; /* Inherits the color to match surrounding text */
 }
 
+/* Top Right Contact Button */
+.top-right-contact {
+    position: fixed;
+    top: 30px;
+    right: 45px;
+    padding: 15px 160px;
+    background-color: #000;
+    color: #fff;
+    font-size: 1.2rem;
+    border-radius: 10px; /* Adjust for the rounded corner effect */
+    text-decoration: none;
+    border: 2px solid #fff; /* Border similar to the one in your image */
+    z-index: 2000; /* Ensures it stays on top */
+    transition: background-color 0.3s ease, color 0.3s ease, border 0.3s ease;
+}
 
+.top-right-contact:hover {
+    background-color: #fff;
+    color: #000;
+    border: 2px solid #000; /* Change border on hover */
+}
 
 
 .navbar {
@@ -145,46 +165,112 @@ a {
 }
 
 /* Mobile Menu Setup */
+/* Mobile Menu Setup */
 @media (max-width: 768px) {
+
+    .top-right-contact {
+        position: fixed;
+        top: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 200px;
+        padding: 15px 20px;
+        background-color: #000;
+        color: #fff;
+        font-size: 1.2rem;
+        border-radius: 10px;
+        text-decoration: none;
+        border: 2px solid #fff;
+        z-index: 2000;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background-color 0.3s ease, color 0.3s ease, border 0.3s ease;
+    }
+
     .menu-icon {
-        display: block; /* Show the menu icon on mobile */
+        display: block;
+        cursor: pointer;
+        font-size: 3rem;
+        color: #fff;
+        position: fixed;
+        right: 20px;
+        top: 20px;
+        z-index: 2000;
     }
 
     .navbar {
-        justify-content: space-between; /* Adjust the alignment on mobile */
-        padding: 20px; /* Reduced padding for mobile */
+        justify-content: space-between;
+        padding: 20px;
     }
 
     .navbar .nav-menu {
-        transform: translateX(100%); /* Hide the menu offscreen by default on mobile */
+        transform: translateX(100%);
         position: fixed;
         top: 0;
         right: 0;
         height: 100vh;
-        background-color: rgba(0, 0, 0, 0.9);
+        background-color: rgba(0, 0, 0, 0.85);
         flex-direction: column;
         padding: 60px 20px;
-        z-index: 1000; /* Ensure the menu stays above other elements */
+        z-index: 1000;
         transition: transform 0.3s ease;
-        gap: 40px; /* Increased gap for more spacing */
+        gap: 70px; /* Increased gap for more spacing */
     }
 
     .navbar .nav-menu a {
-        font-size: 1.5rem; /* Increased font size for mobile */
-        padding: 10px 0; /* Added padding for more spacing */
+        font-size: 2.2rem;
+        padding: 20px 0;
+        text-align: center;
+        color: #fff;
+        text-decoration: none;
+        transition: color 0.3s ease;
+    }
+
+    .navbar .nav-menu a:hover {
+        color: #4070F4;
+    }
+
+    .navbar .nav-menu li {
+        position: relative;
+        padding-bottom: 10px; /* Reduced padding to adjust spacing */
+    }
+
+    /* Removing the existing line under the menu items */
+    .navbar .nav-menu li::after {
+        content: none;
+    }
+
+    /* Adding a custom underline with an offset to avoid overlap */
+    .navbar .nav-menu a::after {
+        content: '';
+        position: absolute;
+        left: 50%;
+        bottom: 20px; /* Offset to prevent overlapping with the animated line */
+        transform: translateX(-50%) scaleX(0);
+        width: 100%;
+        height: 2px;
+        background: #fff;
+        transition: transform 0.3s ease;
+    }
+
+    .navbar .nav-menu a:hover::after {
+        transform: translateX(-50%) scaleX(1);
     }
 
     .navbar .nav-menu.active {
-        transform: translateX(0); /* Slide in the menu when active */
+        transform: translateX(0);
     }
 
     .navbar.scrolled {
-        background-color: rgba(0, 0, 0, 0.8); /* Background changes on scroll */
+        background-color: rgba(0, 0, 0, 0.9);
     }
 
     .menu-icon.scrolled {
-        background-color: rgba(0, 0, 0, 0.8); /* Ensure the icon matches navbar on scroll */
+        background-color: rgba(0, 0, 0, 0.9);
     }
+    
 }
 
 /* Desktop View - Show Full Menu */
@@ -255,17 +341,21 @@ a {
     color: #FFF;
 }
 
+
+
+
+/* REGULAR IMAGE BUTTONS THAT LOOK LIKE APPS THIS CAN BE USED FOR DESKTOP */ 
 .image-buttons {
     display: flex;
     justify-content: center;
-    gap: 20px; /* Adjust gap as needed */
+    gap: 40px; /* Adjust gap as needed */
     margin-top: 20px;
 }
 
 .image-buttons a {
     display: inline-block;
-    width: 80px; /* Adjust width as needed */
-    height: 8ch; /* Adjust height as needed */
+    width: 100px; /* Adjust width as needed */
+    height: 10ch; /* Adjust height as needed */
     transition: transform 0.3s ease;
     z-index: 10;
 }
@@ -573,6 +663,7 @@ a {
     text-align: center;
 }
 
+/* ALL DEVICE OPTIMAZTIONS */
 /* Mobile Optimization */
 @media (max-width: 768px) {
     .menu-icon {
@@ -623,6 +714,35 @@ a {
         font-size: 8vw;
         margin-bottom: 20px;
     }
+
+
+    /*MOBILE IMAGE BUTTONS VERY DONW BELOW */
+    .image-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 20px; /* Adjust gap as needed */
+        margin-top: 20px;
+    }
+    
+    .image-buttons a {
+        display: inline-block;
+        width: 70px; /* Adjust width as needed */
+        height: 7ch; /* Adjust height as needed */
+        transition: transform 0.3s ease;
+        z-index: 10;
+    }
+    
+    .image-buttons img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* Ensures images cover the button area */
+        border-radius: 15px; /* Rounds the corners of the images */
+    }
+    
+    .image-buttons a:hover {
+        transform: scale(1.1); /* Slight zoom on hover */
+    }
+
 }
 
 /* Tablet and Desktop Optimization */
@@ -688,14 +808,15 @@ a {
 }
 
 
-/* Contact Form Styles */
+
+/* Contact Form Styles CONTACT FORM SECTION */
 .contact-wrapper {
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%) scale(0);
-    width: 400px;
-    height: auto;
+    width: 500px;
+    height: 500px;
     background: rgb(0, 0, 0);
     border-radius: 20px;
     backdrop-filter: blur(20px);
@@ -725,12 +846,12 @@ a {
 
 .contact-wrapper .icon-close {
     position: absolute;
-    top: 15px;
-    right: 15px;
-    width: 40px;
-    height: 40px;
+    top: 20px; /* Increased spacing to align with larger size */
+    right: 20px; /* Increased spacing to align with larger size */
+    width: 50px; /* Increased size to match larger form */
+    height: 50px; /* Increased size to match larger form */
     background: #131313;
-    font-size: 1.5rem;
+    font-size: 2rem; /* Increased font size for visibility */
     color: #fff;
     display: flex;
     justify-content: center;
@@ -746,24 +867,24 @@ a {
 }
 
 .contact-wrapper .form-box h2 {
-    font-size: 2rem;
+    font-size: 2.5rem; /* Increased font size for larger form */
     color: #fff;
-    margin-bottom: 20px;
+    margin-bottom: 30px; /* Increased margin for spacing */
 }
 
 .contact-wrapper .input-box {
     position: relative;
     width: 100%;
-    margin-bottom: 20px;
+    margin-bottom: 25px; /* Increased margin for spacing */
     color: #fff;
 }
 
 .contact-wrapper .input-box label {
     position: absolute;
     top: 50%;
-    left: 10px;
+    left: 15px; /* Increased padding for larger form */
     transform: translateY(-50%);
-    font-size: 1rem;
+    font-size: 1.2rem; /* Slightly increased font size */
     pointer-events: none;
     transition: 0.3s ease;
     color: #aaa;
@@ -775,8 +896,8 @@ a {
     background: transparent;
     border: none;
     border-bottom: 2px solid #fff;
-    padding: 10px 15px;
-    font-size: 1rem;
+    padding: 15px 20px; /* Increased padding for larger form */
+    font-size: 1.2rem; /* Slightly increased font size */
     color: #fff;
     outline: none;
 }
@@ -786,26 +907,26 @@ a {
 .contact-wrapper .input-box textarea:focus~label,
 .contact-wrapper .input-box textarea:valid~label {
     top: -10px;
-    left: 10px;
-    font-size: 0.75rem;
+    left: 15px; /* Align with padding changes */
+    font-size: 1rem; /* Increased font size for readability */
     color: #ffffff;
 }
 
 .contact-wrapper .input-box .icon {
     position: absolute;
-    right: 10px;
-    font-size: 1.2rem;
+    right: 15px; /* Increased padding for larger form */
+    font-size: 1.5rem; /* Slightly increased icon size */
     color: #fff;
     line-height: 57px;
 }
 
 .contact-wrapper .btn {
     width: 100%;
-    padding: 10px;
+    padding: 15px; /* Increased padding for larger button */
     background: #162938;
     border: none;
     border-radius: 5px;
-    font-size: 1rem;
+    font-size: 1.2rem; /* Slightly increased font size */
     color: #fff;
     cursor: pointer;
     transition: 0.3s ease;
@@ -815,7 +936,138 @@ a {
     background: #f44070;
 }
 
-/* Jiggle animation */
+@media (max-width: 768px) {
+    
+    .contact-wrapper {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) scale(0);
+        width: 300px;
+        height: 300px;
+        background: rgb(0, 0, 0);
+        border-radius: 20px;
+        backdrop-filter: blur(20px);
+        border: 2px solid rgba(255, 255, 255, .5);
+        box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+        padding: 40px;
+        display: none;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+        z-index: 1000;
+        overflow: hidden;
+    } 
+
+    .contact-wrapper.active {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+    }
+    
+    .contact-wrapper.closing {
+        transform: translate(-50%, -50%) scale(0);
+        opacity: 0;
+        pointer-events: none;
+    }
+    
+    .contact-wrapper .icon-close {
+        position: absolute;
+        top: 15px; /* Reduced spacing */
+        right: 15px; /* Reduced spacing */
+        width: 30px; /* Reduced size */
+        height: 30px; /* Reduced size */
+        background: #131313;
+        font-size: 1.5rem; /* Reduced font size */
+        color: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+        cursor: pointer;
+        z-index: 1001;
+    }
+    
+    .contact-wrapper .form-box {
+        width: 100%;
+        text-align: center;
+    }
+    
+    .contact-wrapper .form-box h2 {
+        font-size: 1.8rem; /* Reduced font size */
+        color: #fff;
+        margin-bottom: 20px; /* Reduced margin */
+    }
+    
+    .contact-wrapper .input-box {
+        position: relative;
+        width: 100%;
+        margin-bottom: 15px; /* Reduced margin */
+        color: #fff;
+    }
+    
+    .contact-wrapper .input-box label {
+        position: absolute;
+        top: 50%;
+        left: 10px; /* Reduced padding */
+        transform: translateY(-50%);
+        font-size: 1rem; /* Slightly reduced font size */
+        pointer-events: none;
+        transition: 0.3s ease;
+        color: #aaa;
+    }
+    
+    .contact-wrapper .input-box input,
+    .contact-wrapper .input-box textarea {
+        width: 100%;
+        background: transparent;
+        border: none;
+        border-bottom: 2px solid #fff;
+        padding: 10px 15px; /* Reduced padding */
+        font-size: 1rem; /* Reduced font size */
+        color: #fff;
+        outline: none;
+    }
+    
+    .contact-wrapper .input-box input:focus~label,
+    .contact-wrapper .input-box input:valid~label,
+    .contact-wrapper .input-box textarea:focus~label,
+    .contact-wrapper .input-box textarea:valid~label {
+        top: -10px;
+        left: 10px; /* Align with padding changes */
+        font-size: 0.8rem; /* Reduced font size for readability */
+        color: #ffffff;
+    }
+    
+    .contact-wrapper .input-box .icon {
+        position: absolute;
+        right: 10px; /* Reduced padding */
+        font-size: 1.2rem; /* Reduced icon size */
+        color: #fff;
+        line-height: 57px;
+    }
+    
+    .contact-wrapper .btn {
+        width: 100%;
+        padding: 10px; /* Reduced padding */
+        background: #162938;
+        border: none;
+        border-radius: 5px;
+        font-size: 1rem; /* Reduced font size */
+        color: #fff;
+        cursor: pointer;
+        transition: 0.3s ease;
+    }
+    
+    .contact-wrapper .btn:hover {
+        background: #f44070;
+    }
+}
+
+
+
+
+/* Jiggle animation FOR THE ICONS ON THE SCREEN*/
 @keyframes jiggle {
     0% { transform: rotate(-3deg) scale(1); }
     25% { transform: rotate(3deg) scale(1.05); }
