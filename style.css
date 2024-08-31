@@ -804,3 +804,17 @@ a {
     background: #f44070;
 }
 
+/* Jiggle animation */
+@keyframes jiggle {
+    0% { transform: rotate(-3deg) scale(1); }
+    25% { transform: rotate(3deg) scale(1.05); }
+    50% { transform: rotate(-3deg) scale(1); }
+    75% { transform: rotate(3deg) scale(1.05); }
+    100% { transform: rotate(-3deg) scale(1); }
+}
+
+/* Apply jiggle animation on hover */
+.image-buttons a:hover img {
+    animation: jiggle 0.5s infinite;
+}
+
