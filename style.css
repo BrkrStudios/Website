@@ -41,8 +41,6 @@ a {
 
 
 
-
-/* Navbar Styling */
 .navbar {
     position: fixed;
     top: 0;
@@ -54,7 +52,17 @@ a {
     align-items: center;
     z-index: 1000;
     background-color: transparent; /* Transparent header */
-    transition: background-color 0.3s ease; /* Smooth background color transition */
+    transition: background-color 0.3s ease, padding 0.3s ease; /* Smooth background color transition */
+    visibility: hidden; /* Initially hidden */
+    opacity: 0; /* Initially transparent */
+}
+
+/* Navbar Full View */
+.navbar.full {
+    background-color: transparent; /* Background when full navbar is visible */
+    padding: 20px 50px; /* Adjust padding when full navbar is visible */
+    visibility: visible; /* Show the navbar */
+    opacity: 1; /* Make the navbar fully visible */
 }
 
 /* Navbar Menu Styling */
@@ -130,8 +138,10 @@ a {
     right: 20px;
     top: 20px;
     z-index: 2000; /* Ensure the icon stays above other elements */
-
     background-color: transparent; /* Make sure it's transparent to match the navbar */
+    visibility: hidden; /* Initially hidden */
+    opacity: 0; /* Initially invisible */
+    transition: visibility 0.3s, opacity 0.3s; /* Smooth transition */
 }
 
 /* Mobile Menu Setup */
@@ -196,6 +206,7 @@ a {
         transform: none;
     }
 }
+
 
 
 /* Hero section styles */

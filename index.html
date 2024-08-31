@@ -22,6 +22,7 @@
         <nav class="navbar">
             <ul class="nav-menu" id="navMenu">
                 <li><a href="#top">Home</a></li>
+                <li><a href="#milliLife">MilliLife</a></li>
                 <li><a href="#aboutBrkrStudios">About BrkrStudios</a></li>
                 <li><a href="#meetTheCreator">Meet The Creator</a></li>
                 <li><a href="#team">Team</a></li>
@@ -151,6 +152,47 @@
     </div>
 </div>
 
+<script>
+window.addEventListener('scroll', function () {
+    const navbar = document.querySelector('.navbar');
+    const menuIcon = document.querySelector('.menu-icon');
+    const heroSection = document.querySelector('.hero');
+    const milliLifeSection = document.getElementById('milliLife');
+    const navMenu = document.querySelector('.nav-menu');
+
+    const heroBottom = heroSection.getBoundingClientRect().bottom;
+    const milliLifeTop = milliLifeSection.getBoundingClientRect().top;
+
+    // Show the navbar when the user scrolls past the hero section
+    if (heroBottom <= 0) {
+        navbar.classList.add('full');
+        menuIcon.classList.add('full');
+    } else {
+        navbar.classList.remove('full');
+        menuIcon.classList.remove('full');
+    }
+
+    // Show the menu icon only when the MilliLife section is reached
+    if (milliLifeTop <= 0) {
+        menuIcon.style.visibility = 'visible';
+        menuIcon.style.opacity = '1';
+    } else {
+        menuIcon.style.visibility = 'hidden';
+        menuIcon.style.opacity = '0';
+    }
+
+    // Ensure the menu closes when scrolling back up to the hero section
+    if (heroBottom > 0 && navMenu.classList.contains('active')) {
+        navMenu.classList.remove('active');
+    }
+});
+
+function toggleMenu() {
+    const navMenu = document.getElementById('navMenu');
+    navMenu.classList.toggle('active');
+}
+</script>
+
 <!-- JavaScript for Menu Toggle and Scroll Effects -->
 <script>
     function toggleMenu() {
@@ -246,3 +288,4 @@ textarea.addEventListener('input', function() {
 
 <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
