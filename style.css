@@ -816,7 +816,7 @@ a {
     left: 50%;
     transform: translate(-50%, -50%) scale(0);
     width: 500px;
-    height: 500px;
+    height: auto; /* Auto height for better scaling */
     background: rgb(0, 0, 0);
     border-radius: 20px;
     backdrop-filter: blur(20px);
@@ -846,12 +846,12 @@ a {
 
 .contact-wrapper .icon-close {
     position: absolute;
-    top: 20px; /* Increased spacing to align with larger size */
-    right: 20px; /* Increased spacing to align with larger size */
-    width: 50px; /* Increased size to match larger form */
-    height: 50px; /* Increased size to match larger form */
+    top: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
     background: #131313;
-    font-size: 2rem; /* Increased font size for visibility */
+    font-size: 2rem;
     color: #fff;
     display: flex;
     justify-content: center;
@@ -867,24 +867,24 @@ a {
 }
 
 .contact-wrapper .form-box h2 {
-    font-size: 2.5rem; /* Increased font size for larger form */
+    font-size: 2.5rem;
     color: #fff;
-    margin-bottom: 30px; /* Increased margin for spacing */
+    margin-bottom: 30px;
 }
 
 .contact-wrapper .input-box {
     position: relative;
     width: 100%;
-    margin-bottom: 25px; /* Increased margin for spacing */
+    margin-bottom: 25px;
     color: #fff;
 }
 
 .contact-wrapper .input-box label {
     position: absolute;
     top: 50%;
-    left: 15px; /* Increased padding for larger form */
+    left: 15px;
     transform: translateY(-50%);
-    font-size: 1.2rem; /* Slightly increased font size */
+    font-size: 1.2rem;
     pointer-events: none;
     transition: 0.3s ease;
     color: #aaa;
@@ -896,8 +896,8 @@ a {
     background: transparent;
     border: none;
     border-bottom: 2px solid #fff;
-    padding: 15px 20px; /* Increased padding for larger form */
-    font-size: 1.2rem; /* Slightly increased font size */
+    padding: 15px 20px;
+    font-size: 1.2rem;
     color: #fff;
     outline: none;
 }
@@ -907,26 +907,26 @@ a {
 .contact-wrapper .input-box textarea:focus~label,
 .contact-wrapper .input-box textarea:valid~label {
     top: -10px;
-    left: 15px; /* Align with padding changes */
-    font-size: 1rem; /* Increased font size for readability */
+    left: 15px;
+    font-size: 1rem;
     color: #ffffff;
 }
 
 .contact-wrapper .input-box .icon {
     position: absolute;
-    right: 15px; /* Increased padding for larger form */
-    font-size: 1.5rem; /* Slightly increased icon size */
+    right: 15px;
+    font-size: 1.5rem;
     color: #fff;
     line-height: 57px;
 }
 
 .contact-wrapper .btn {
     width: 100%;
-    padding: 15px; /* Increased padding for larger button */
+    padding: 15px;
     background: #162938;
     border: none;
     border-radius: 5px;
-    font-size: 1.2rem; /* Slightly increased font size */
+    font-size: 1.2rem;
     color: #fff;
     cursor: pointer;
     transition: 0.3s ease;
@@ -936,6 +936,72 @@ a {
     background: #f44070;
 }
 
+/* Styling the checkbox */
+.checkbox-container {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: center; /* Center the text */
+    user-select: none;
+    color: #fff;
+}
+
+/* Hide the default checkbox */
+.checkbox-container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+/* Custom checkbox */
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    background-color: transparent;
+    border: 2px solid #fff;
+    border-radius: 3px;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+/* On hover, change the border and background color */
+.checkbox-container:hover input ~ .checkmark {
+    background-color: #333;
+    border-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.checkbox-container input:checked ~ .checkmark {
+    background-color: #4070F4;
+    border-color: #4070F4;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark::after {
+    content: "";
+    position: absolute;
+    display: none;
+    left: 4.5px;
+    top: 1.5px;
+    width: 6px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+/* Show the checkmark when checked */
+.checkbox-container input:checked ~ .checkmark::after {
+    display: block;
+}
+
+/* Mobile Optimized Contact Form */
 @media (max-width: 768px) {
     
     .contact-wrapper {
@@ -944,13 +1010,13 @@ a {
         left: 50%;
         transform: translate(-50%, -50%) scale(0);
         width: 300px;
-        height: 300px;
+        height: auto;
         background: rgb(0, 0, 0);
         border-radius: 20px;
         backdrop-filter: blur(20px);
         border: 2px solid rgba(255, 255, 255, .5);
         box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
-        padding: 40px;
+        padding: 30px;
         display: none;
         flex-direction: column;
         justify-content: center;
@@ -958,7 +1024,7 @@ a {
         transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
         z-index: 1000;
         overflow: hidden;
-    } 
+    }
 
     .contact-wrapper.active {
         transform: translate(-50%, -50%) scale(1);
@@ -973,12 +1039,12 @@ a {
     
     .contact-wrapper .icon-close {
         position: absolute;
-        top: 15px; /* Reduced spacing */
-        right: 15px; /* Reduced spacing */
-        width: 30px; /* Reduced size */
-        height: 30px; /* Reduced size */
+        top: 15px;
+        right: 15px;
+        width: 30px;
+        height: 30px;
         background: #131313;
-        font-size: 1.5rem; /* Reduced font size */
+        font-size: 1.5rem;
         color: #fff;
         display: flex;
         justify-content: center;
@@ -988,30 +1054,25 @@ a {
         z-index: 1001;
     }
     
-    .contact-wrapper .form-box {
-        width: 100%;
-        text-align: center;
-    }
-    
     .contact-wrapper .form-box h2 {
-        font-size: 1.8rem; /* Reduced font size */
+        font-size: 1.8rem;
         color: #fff;
-        margin-bottom: 20px; /* Reduced margin */
+        margin-bottom: 20px;
     }
     
     .contact-wrapper .input-box {
         position: relative;
         width: 100%;
-        margin-bottom: 15px; /* Reduced margin */
+        margin-bottom: 15px;
         color: #fff;
     }
     
     .contact-wrapper .input-box label {
         position: absolute;
         top: 50%;
-        left: 10px; /* Reduced padding */
+        left: 10px;
         transform: translateY(-50%);
-        font-size: 1rem; /* Slightly reduced font size */
+        font-size: 1rem;
         pointer-events: none;
         transition: 0.3s ease;
         color: #aaa;
@@ -1023,8 +1084,8 @@ a {
         background: transparent;
         border: none;
         border-bottom: 2px solid #fff;
-        padding: 10px 15px; /* Reduced padding */
-        font-size: 1rem; /* Reduced font size */
+        padding: 10px 15px;
+        font-size: 1rem;
         color: #fff;
         outline: none;
     }
@@ -1034,26 +1095,26 @@ a {
     .contact-wrapper .input-box textarea:focus~label,
     .contact-wrapper .input-box textarea:valid~label {
         top: -10px;
-        left: 10px; /* Align with padding changes */
-        font-size: 0.8rem; /* Reduced font size for readability */
+        left: 10px;
+        font-size: 0.8rem;
         color: #ffffff;
     }
     
     .contact-wrapper .input-box .icon {
         position: absolute;
-        right: 10px; /* Reduced padding */
-        font-size: 1.2rem; /* Reduced icon size */
+        right: 10px;
+        font-size: 1.2rem;
         color: #fff;
         line-height: 57px;
     }
     
     .contact-wrapper .btn {
         width: 100%;
-        padding: 10px; /* Reduced padding */
+        padding: 10px;
         background: #162938;
         border: none;
         border-radius: 5px;
-        font-size: 1rem; /* Reduced font size */
+        font-size: 1rem;
         color: #fff;
         cursor: pointer;
         transition: 0.3s ease;
@@ -1061,6 +1122,24 @@ a {
     
     .contact-wrapper .btn:hover {
         background: #f44070;
+    }
+
+    /* Adjust checkbox container for mobile */
+    .checkbox-container {
+        font-size: 1rem;
+        padding-left: 30px;
+    }
+
+    .checkmark {
+        height: 18px;
+        width: 18px;
+    }
+
+    .checkmark::after {
+        left: 3.5px;
+        top: 1px;
+        width: 5px;
+        height: 8px;
     }
 }
 
